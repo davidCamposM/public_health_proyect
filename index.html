@@ -4,7 +4,28 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>health_public_proyect</title>
+    <title>Vida Salud Pública</title>
+    <style>
+      :root {
+        /* Variables CSS maestras para el fondo - Fácilmente modificables */
+        --bg-green-rgb: 16, 185, 129; /* Verde esmeralda fresco y profesional */
+        --bg-opacity-start: 0.10; /* Transparencia inicial (12%) */
+        --bg-opacity-end: 0.20;   /* Transparencia final (3%) */
+        --bg-gradient-angle: 135deg; /* Ángulo de caída de la luz */
+      }
+      
+      body {
+        /* Gradiente translúcido moderno */
+        background: linear-gradient(
+          var(--bg-gradient-angle),
+          rgba(var(--bg-green-rgb), var(--bg-opacity-start)) 0%,
+          rgba(var(--bg-green-rgb), var(--bg-opacity-end)) 100%
+        );
+        background-attachment: fixed; /* Dinámico: Se mantiene fijo al hacer scroll */
+        margin: 0;
+        min-height: 100vh;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

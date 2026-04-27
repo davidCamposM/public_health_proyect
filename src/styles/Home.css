@@ -21,6 +21,15 @@
   border: 1px solid rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(3px);
   animation: navbarIn 0.6s ease both;
+  transition: padding 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease, background 0.4s ease;
+}
+
+/* Efecto sutil de "despegue" al hacer scroll */
+.navbar.scrolled {
+  padding: 0.6rem 2rem 0.4rem; /* Se encoge ligeramente */
+  background: linear-gradient(135deg, rgba(0, 121, 107, 0.88), rgba(0, 155, 138, 0.88)); /* Más translúcido */
+  box-shadow: 0 15px 35px rgba(0, 74, 66, 0.45), 0 5px 15px rgba(0, 0, 0, 0.28); /* Sombra más profunda */
+  backdrop-filter: blur(12px); /* Mayor efecto de cristal esmerilado */
 }
 
 .navbar-brand h1 {

@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
-import MainView from './pages/MainView'
+import MainView from './views/pages/MainView'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

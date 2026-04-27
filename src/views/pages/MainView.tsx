@@ -1,6 +1,7 @@
-
 import { useState } from 'react'
-import './MainView.css'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import '../../styles/Form.css'
+import '../../styles/Services.css'
 
 // Servicios existentes
 const services = [
@@ -15,9 +16,20 @@ const services = [
     {
         title: 'Red de apoyo comunitario',
         text: 'Conecta con servicios locales, jornadas de salud y campañas informativas pensadas para tu comunidad.'
+    },
+    {
+        title: 'Telemedicina',
+        text: 'Servicio desarrollado para atención general con alta capacidad tecnologica para identificar su dolencia.'
+    },
+    {
+        title: 'Exámenes de laboratorio',
+        text: 'Toma de muestras y análisis clínicos con resultados rápidos y confiables para un diagnóstico preciso.'
+    },
+    {
+        title: 'Atención de especialidades',
+        text: 'Consulta con médicos especialistas en diversas áreas para un tratamiento enfocado y resolutivo.'
     }
 ]
-
 
 // Caracteristicas de formula
 
@@ -54,11 +66,12 @@ const estadoInicial: DatosFormSeleccion = {
 
 const MainView = () => {
 
-    
+
     const [formData, setFormData] = useState<DatosFormSeleccion>(estadoInicial)
 
-    // Logica para renderizar cada titulo y su campo en el formularip
+    // Logica para renderizar cada titulo y su campo en el formulario
     const renderGrupo = (titulo: string, campo: keyof DatosFormSeleccion, clase?: string) => {
+        
         return (
             <fieldset className={clase}>
                 <legend>{titulo}</legend>
@@ -82,6 +95,26 @@ const MainView = () => {
         )
     }
 
+    // Method: Recorrer cada servico disponible
+    // Ir a la imagen posterior
+    // Ir a la imagen anterior
+    // Manejar esto a traves de indices
+
+    const [indexCurrent, indexUpdate] = useState(0);
+
+
+
+    const goToNext = () => {
+        const newIndex = (indexCurrent + 3) >= services.length ? 0 : indexCurrent + 3;
+        indexUpdate(newIndex);
+    }
+
+    const goToPrevious = () => {
+        const newIndex = (indexCurrent - 3) < 0 ? services.length - 3 : indexCurrent - 3;
+        indexUpdate(newIndex);
+    }
+
+    // LOGICA SERVICIOS DISPONIBLES
     return (
         <div className="main-container">
             <div className="main-title-container">
@@ -89,9 +122,9 @@ const MainView = () => {
             </div>
 
             <div className="main-services-grid">
-                {services.map((block, index) => (
+                {services.slice(indexCurrent, indexCurrent + 3).map((block, index) => (
                     <article
-                        className="main-center-block"
+                        className="main-center-block fade-in"
                         key={block.title}
                         style={{ animationDelay: `${index * 0.10}s` }}
                     >
@@ -101,8 +134,19 @@ const MainView = () => {
                 ))}
             </div>
 
+            <section className='section-button-services'>
+                <button className='button-services-left' onClick={goToPrevious}>
+                    <ArrowLeft size={18} /> Anterior
+                </button>
+                <button className='button-services-right' onClick={goToNext}>
+                    Siguiente <ArrowRight size={18} />
+                </button>
+            </section>
+
+
+            {/* FORMULARIO */}
             <form className='main-form'>
-                <h2 className='main-form-title'>Formulario inmediato</h2>
+                <h2 className='main-form-title'>Hora Médica</h2>
                 {renderGrupo('ID Paciente', 'idPaciente')}
                 {renderGrupo('Número Teléfono', 'numeroTelefono')}
                 {renderGrupo('Correo', 'correo')}
@@ -110,7 +154,7 @@ const MainView = () => {
                 {renderGrupo('Sucursal', 'sucursal', 'main-field-below-correo')}
                 {renderGrupo('Nombre Especialidad', 'nombreEspecialidad')}
                 <div className='main-submit-row'>
-                    <input type='submit' value='submit' />
+                    <input type='submit' value='Enviar' />
                 </div>
             </form>
         </div>

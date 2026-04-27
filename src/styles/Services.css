@@ -1,0 +1,135 @@
+/* CSS SERVICIOS DISPONIBLES */
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 20px;
+    margin-top: 4rem; /* Aire y separación con la sección de arriba */
+
+}
+
+.main-title-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.main-page-title{
+    grid-column: 1 / -1;
+    margin: 0 0 1rem;
+    text-align: center;
+    color: #2f8173;
+    font-size: clamp(2rem, 2.1vw, 1.6rem);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 8px rgba(73, 162, 148, 0.2);
+    padding: 0.40rem 0.7rem;
+    border-radius: 50px;
+    border: 1px solid rgba(66, 173, 157, 0.507);
+    background: linear-gradient(130deg, rgba(254, 255, 255, 0.781), rgba(255, 255, 255, 0.349));
+    box-shadow: 0 8px 16px rgba(51, 138, 125, 0.961);
+    backdrop-filter: blur(4px)
+}
+
+.main-services-grid {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+
+
+.main-center-block {
+    width: 300px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: linear-gradient(160deg, var(--block-color), var(--main-color));
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    color: #ffffff;
+    box-shadow: 0 16px 36px rgba(0, 121, 107, 0.34), 0 10px 22px rgba(0, 0, 0, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0);
+    transform: translateY(0);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    will-change: transform;
+}
+
+.main-center-block:hover {
+    transform: translateY(-12px) scale(1.04);
+    box-shadow: 0 24px 48px rgba(0, 121, 107, 0.45), 0 14px 28px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+
+}
+
+.main-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.28rem;
+    font-weight: 700;
+}
+
+.main-text {
+    margin: 0;
+    line-height: 2;
+    text-align: left;
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Botones de navegación */
+.section-button-services {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.button-services-left,
+.button-services-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: rgba(0, 121, 107, 0.80);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-services-left:hover,
+.button-services-right:hover {
+    background-color: rgba(51, 138, 125, 0.961);
+    transform: translateY(-4px);
+}
+
+.button-services-left:active,
+.button-services-right:active {
+    transform: translateY(0);
+}

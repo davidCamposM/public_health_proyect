@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
+import '../../styles/Home.css';
+
+
 
 // Importa tus imágenes. Asegúrate que la ruta sea correcta.
-import imagen1 from '../assets/img/img1.jpg';
-import imagen2 from '../assets/img/img2.jpg';
-import imagen3 from '../assets/img/img3.jpg';
+import imagen1 from '../../assets/img/img1.jpg';
+import imagen2 from '../../assets/img/img2.jpg';
+import imagen3 from '../../assets/img/img3.jpg';
 
 // Arreglo que contiene los navs
 const navLinks = [
@@ -21,6 +23,16 @@ const sliderImages = [imagen1, imagen2, imagen3];
 
 const HomeView = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    // Efecto para escuchar el scroll y cambiar el estado del navbar
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20); // Se activa después de 20px de scroll
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll); // Limpieza del listener
+    }, []);
 
     /* Logica de flechas para cambiar las imagenes que se muestran */
     // Logica para ir a la imagen anterior 
@@ -39,7 +51,7 @@ const HomeView = () => {
 
     return (
         <>
-            <header className='navbar'>
+            <header className={`navbar ${isScrolled ? 'scrolled' : ''}`} style={{ position: 'sticky', top: 0, zIndex: 1000 }}>
                 <div className='navbar-brand'>
                     <h1>Vida Salud Pública</h1>
                 </div>
@@ -66,9 +78,11 @@ const HomeView = () => {
                 <button onClick={goToPrevious} className='slider-arrow left-arrow'>
                     &#10094;
                 </button>
+
                 <div className='slider-image-container'>
                     <img key={currentIndex} src={sliderImages[currentIndex]} alt={`Slide ${currentIndex + 1}`} className='slider-image' />
                 </div>
+
                 <button onClick={goToNext} className='slider-arrow right-arrow'>
                     &#10095;
                 </button>
