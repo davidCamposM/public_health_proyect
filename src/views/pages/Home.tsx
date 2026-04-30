@@ -9,13 +9,16 @@ import imagen1 from '../../assets/img/img1.jpg';
 import imagen2 from '../../assets/img/img2.jpg';
 import imagen3 from '../../assets/img/img3.jpg';
 
+
+
+
+
 // Arreglo que contiene los navs
 const navLinks = [
     { title: 'Inicio', path: '/inicio' },
     { title: 'Agenda de turnos', path: '/agenda_turnos' },
     { title: 'Fichas Clínicas', path: '/fichas_clinicas' },
     { title: 'Sobre nosotros', path: '/sobre_nosotros' },
-    { title: 'Es un extra', path: '/extra' }
 ];
 
 // Logica de las imagenes con el slider
@@ -31,7 +34,7 @@ const HomeView = () => {
             setIsScrolled(window.scrollY > 20); // Se activa después de 20px de scroll
         };
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll); // Limpieza del listener
+        return () => window.removeEventListener('scroll', handleScroll); 
     }, []);
 
     /* Logica de flechas para cambiar las imagenes que se muestran */

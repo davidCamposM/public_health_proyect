@@ -3,31 +3,45 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import '../../styles/Form.css'
 import '../../styles/Services.css'
 
+//Importacion de imagenes
+import img_atencion_primaria from "../../assets/img/img5.jpg"
+import img_bienestar from "../../assets/img/img7.jpg"
+import img_apoyo_comunitario from "../../assets/img/img4.jpg"
+import img_telemedicina from "../../assets/img/img10.jpg"
+import img_examen_lab from "../../assets/img/img9.jpg"
+import img_especialidades from "../../assets/img/img8.jpg"
+
 // Servicios existentes
 const services = [
     {
         title: 'Atención primaria',
-        text: 'Accede a orientación médica inicial, seguimiento preventivo y derivación oportuna para cuidar tu salud de forma continua.'
+        text: 'Accede a orientación médica inicial, seguimiento preventivo y derivación oportuna para cuidar tu salud de forma continua.',
+        img: img_atencion_primaria
     },
     {
         title: 'Programas de bienestar',
-        text: 'Encuentra actividades y recursos para nutrición, salud mental y actividad física con acompañamiento profesional.'
+        text: 'Encuentra actividades y recursos para nutrición, salud mental y actividad física con acompañamiento profesional.',
+        img: img_bienestar
     },
     {
         title: 'Red de apoyo comunitario',
-        text: 'Conecta con servicios locales, jornadas de salud y campañas informativas pensadas para tu comunidad.'
+        text: 'Conecta con servicios locales, jornadas de salud y campañas informativas pensadas para tu comunidad.',
+        img: img_apoyo_comunitario
     },
     {
         title: 'Telemedicina',
-        text: 'Servicio desarrollado para atención general con alta capacidad tecnologica para identificar su dolencia.'
+        text: 'Servicio desarrollado para atención general con alta capacidad tecnologica para identificar su dolencia.',
+        img: img_telemedicina
     },
     {
         title: 'Exámenes de laboratorio',
-        text: 'Toma de muestras y análisis clínicos con resultados rápidos y confiables para un diagnóstico preciso.'
+        text: 'Toma de muestras y análisis clínicos con resultados rápidos y confiables para un diagnóstico preciso.',
+        img: img_examen_lab
     },
     {
         title: 'Atención de especialidades',
-        text: 'Consulta con médicos especialistas en diversas áreas para un tratamiento enfocado y resolutivo.'
+        text: 'Consulta con médicos especialistas en diversas áreas para un tratamiento enfocado y resolutivo.',
+        img: img_especialidades
     }
 ]
 
@@ -129,6 +143,16 @@ const MainView = () => {
                         style={{ animationDelay: `${index * 0.10}s` }}
                     >
                         <h2 className="main-title">{block.title}</h2>
+                        <img
+                        className='img-services'
+                        src={block.img}
+                        alt={block.title}
+                        >
+                        </img>
+
+
+
+
                         <section className="main-text">{block.text}</section>
                     </article>
                 ))}
